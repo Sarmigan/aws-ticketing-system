@@ -7,54 +7,56 @@
 # Installation
 
 ## Flask Server
-Clone the repository
+1. Clone the repository
 ```
 git clone https://github.com/Sarmigan/aws-ticketing-system.git
 ```
 
-Retrieve an AWS access key and secret key for a user with permissions to create and send messages in SQS.
+2. Retrieve an AWS access key and secret key for a user with permissions to create and send messages in SQS.
 
-Create a .env file in the root directory and populate with appropriate AWS access credentials
+3. Create a .env file in the root directory and populate with appropriate AWS access credentials
 ```
 ACCESS_KEY=...
 SECRET_KEY=...
 ```
 
-### Install dependencies with poetry
-Install [poetry](https://python-poetry.org/docs/).
+### Install dependencies
+#### ... with poetry
+1. Install [poetry](https://python-poetry.org/docs/).
 
-Install all dependencies
+2. Install all dependencies
 ```
 poetry install
 ```
 
-Run the Flask app
+3. Run the Flask app
 ```
 poetry run flask run
 ```
 
-### Install dependencies with pip
-Install all dependencies
+#### ... with pip
+1. Install all dependencies
 ```
 pip install -r requirements.txt
 ```
 
-Run the Flask app
+2. Run the Flask app
 ```
 flask run
 ```
 
 ## Configure Power Automate Flows
 
-Visit [Power Automate](https://make.powerautomate.com/) and login.
+1. Visit [Power Automate](https://make.powerautomate.com/) and login.
 
 > [!IMPORTANT]
 > Make sure you are in the default environment.
 
-Create a new solution.
+2. Create a new solution.
 
-Within the new solution create a new instant cloud flow.
+3. Within the new solution create a new instant cloud flow.
 
+### Configure "Create Adaptive Card" Flow
 
 
 # Hurdles
