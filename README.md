@@ -1,3 +1,5 @@
+<h1 align="center">Teams Ticketing</h1>
+
 This is a bug ticketing system designed for Teams. Users can choose a priority level and provide a bug description using an [Adaptive Card](https://learn.microsoft.com/en-us/adaptive-cards/) within a Teams channel. Using Power Automate, the ticket is then dispatched to a Flask app, which directs the message to the appropriate AWS SQS queue for further processing.
 
 # Prerequisites

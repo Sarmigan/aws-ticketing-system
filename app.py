@@ -7,6 +7,7 @@ import os
 load_dotenv()
 app = Flask(__name__)
 
+# Set region!
 client = boto3.client(
     'sqs',
     aws_access_key_id=os.environ["ACCESS_KEY"],
