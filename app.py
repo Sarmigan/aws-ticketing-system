@@ -16,6 +16,7 @@ client = boto3.client(
 def send_to_queue(message, priority):
     message = json.dumps(message)
 
+    # Don't need get_queue_by_name?
     try:
         url = client.get_queue_by_name(QueueName=priority)["QueueUrl"]
     except:
