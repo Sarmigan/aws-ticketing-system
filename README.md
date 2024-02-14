@@ -62,18 +62,35 @@ flask run
 
 3. Add a Teams 'Post a card in a chat or channel' action.
 
-| Field | Value |
-| --- | --- |
-| Post As | Flow bot |
-| Post In | Channel |
-| Team |  [Target team] |
-| Channel |  [Target channel] |
-| Adaptive Card | [Copy template from `card_templates/ticket_card.json`] |
-| Card Type Id | TicketCard |
+<table>
+<tr>
+<td> Field </td><td> Value </td>
+</tr>
+<tr>
+<td> Post As </td><td> Flow bot </td>
+</tr>
+<tr>
+<td> Post In </td><td> Channel </td>
+</tr>
+<tr>
+<td> Team </td><td> [Target team] </td>
+</tr>
+<tr>
+<td> Channel </td><td> [Target channel] </td>
+</tr>
+<tr>
+<td> Channel </td><td> [Target channel] </td>
+</tr>
+<tr>
+<td> Adaptive Card </td><td> [Copy template from `card_templates/ticket_card.json`] </td>
+</tr>
+<tr>
+<td> Card Type Id </td><td> TicketCard </td>
+</tr>
+</table>
 
 > [!NOTE]
-> The field 'Card Type Id' can be found under 'Advanced parameters'
-> 'Card Type Id' can be any value but must stay consistent across flows
+> The field 'Card Type Id' can be found under 'Advanced parameters'. 'Card Type Id' can be any value but must stay consistent across flows
 
 4. Save and exit flow.
 
@@ -83,27 +100,61 @@ flask run
 
 2. Add a Teams 'When someone responds to an adaptive card' trigger
 
-| Field | Value |
-| --- | --- |
-| Inputs Adaptive Card | [Copy template from `card_templates/ticket_card.json`] |
-| Card Type Id | TicketCard |
+<table>
+<tr>
+<td> Field </td><td> Value </td>
+</tr>
+<tr>
+<td> Inputs Adaptive Card </td><td> [Copy template from `card_templates/ticket_card.json`] </td>
+</tr>
+<tr>
+<td> Card Type Id </td><td> TicketCard </td>
+</tr>
+</table>
 
 3. Add a Teams 'Post card in chat or channel' action
 
-| Field | Value |
-| --- | --- |
-| Post as | Flow bot |
-| Post in | Chat with Flow bot |
-| Recipient |  [Use 'Responder User ID' dynamic content from 'When someone responds to an adaptive card' trigger] |
-| Adaptive Card | [Copy template from `card_templates/update_card.json`] |
+<table>
+<tr>
+<td> Field </td><td> Value </td>
+</tr>
+<tr>
+<td> Post as </td><td> Flow bot </td>
+</tr>
+<tr>
+<td> Post in </td><td> Chat with Flow bot </td>
+</tr>
+<tr>
+<td> Recipient </td><td> [Use 'Responder User ID' dynamic content from 'When someone responds to an adaptive card' trigger] </td>
+</tr>
+<tr>
+<td> Adaptive Card </td><td> [Copy template from `card_templates/update_card.json`] </td>
+</tr>
+</table>
 
 4. Add a HTTP 'HTTP' action
 
-| Field | Value |
-| --- | --- |
-| Method | POST |
-| URI | [Flask app url] |
-| Body |  ```{ "priority": "[Use 'input-priority' dynamic content from 'When someone responds to an adaptive card' trigger]", "description": "[Use 'input-description' dynamic content from 'When someone responds to an adaptive card' trigger]" }``` |
+<table>
+<tr>
+<td> Field </td><td> Value </td>
+</tr>
+<tr>
+<td> Method </td><td> POST </td>
+</tr>
+<tr>
+<td> URI </td><td> [Flask app url] </td>
+</tr>
+<tr>
+<td> Body </td><td>
+<pre lang="json">
+{
+    "priority": "[Use 'input-priority' dynamic content from 'When someone responds to an adaptive card' trigger]",
+    "description": "[Use 'input-description' dynamic content from 'When someone responds to an adaptive card' trigger]"
+}
+</pre>
+</td>
+</tr>
+</table>
 
 5. Add a Teams 'Post card in chat or channel' action
 
