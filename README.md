@@ -62,11 +62,13 @@ flask run
 
 3. Add a Teams "Post a card in a chat or channel" action.
 
-|  Post As  |  Flow bot  |
-|  Post In  |  Channel  |
-|  Team  |  [Target team]  |
-|  Channel  |  [Target channel]  |
-|  Adaptive Card  |  [Copy template from `card_templates/ticket_card.json`]  |
+| Field | Value |
+| --- | --- |
+| Post As | Flow bot |
+| Post In | Channel |
+| Team |  [Target team] |
+| Channel |  [Target channel] |
+| Adaptive Card | [Copy template from `card_templates/ticket_card.json`] |
 
 # Hurdles
 
