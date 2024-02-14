@@ -5,6 +5,8 @@
 - [ ] Premium Power Automate account
 
 # Installation
+
+## Flask Server
 Clone the repository
 ```
 git clone https://github.com/Sarmigan/aws-ticketing-system.git
@@ -18,6 +20,7 @@ ACCESS_KEY=...
 SECRET_KEY=...
 ```
 
+### Install dependencies with poetry
 Install [poetry](https://python-poetry.org/docs/).
 
 Install all dependencies
@@ -30,11 +33,28 @@ Run the Flask app
 poetry run flask run
 ```
 
-Create a new MS Teams Team for the ticketing system.
-Click the + button on the Teams tab of MS Teams and select Create team.
-Select From scratch > Public, then give your new team a name and description, and click Create.
-Create a new channel in the team by clicking the ellipsis button, then Add channel.
-Give the channel a name and select Standard access.
+### Install dependencies with pip
+Install all dependencies
+```
+pip install -r requirements.txt
+```
+
+Run the Flask app
+```
+flask run
+```
+
+## Configure Power Automate Flows
+
+Visit [Power Automate](https://make.powerautomate.com/) and login.
+
+> [!IMPORTANT]
+> Make sure you are in the default environment.
+
+Create a new solution.
+
+Within the new solution create a new instant cloud flow.
+
 
 
 # Hurdles
