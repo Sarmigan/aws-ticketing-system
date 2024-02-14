@@ -50,14 +50,23 @@ flask run
 1. Visit [Power Automate](https://make.powerautomate.com/) and login.
 
 > [!IMPORTANT]
-> Make sure you are in the default environment.
+> Make sure you are in the [default environment](https://learn.microsoft.com/en-us/power-platform/admin/environments-overview#the-default-environment).
 
-2. Create a new solution.
-
-3. Within the new solution create a new instant cloud flow.
+2. Create a new [solution](https://learn.microsoft.com/en-us/power-automate/overview-solution-flows).
 
 ### Configure "Create Adaptive Card" Flow
 
+1. Within the new solution create a new instant cloud flow.
+
+2. Create a "Manually trigger a flow" trigger
+
+3. Add a Teams "Post a card in a chat or channel" action.
+
+|  Post As  |  Flow bot  |
+|  Post In  |  Channel  |
+|  Team  |  [Target team]  |
+|  Channel  |  [Target channel]  |
+|  Adaptive Card  |  [Copy template from `card_templates/ticket_card.json`]  |
 
 # Hurdles
 
