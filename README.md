@@ -54,13 +54,13 @@ flask run
 
 2. Create a new [solution](https://learn.microsoft.com/en-us/power-automate/overview-solution-flows).
 
-### Configure "Create Adaptive Card" Flow
+### Configure 'Create Adaptive Card' Flow
 
 1. Within the new solution create a new instant cloud flow.
 
-2. Create a "Manually trigger a flow" trigger
+2. Add a 'Manually trigger a flow' trigger
 
-3. Add a Teams "Post a card in a chat or channel" action.
+3. Add a Teams 'Post a card in a chat or channel' action.
 
 | Field | Value |
 | --- | --- |
@@ -69,6 +69,52 @@ flask run
 | Team |  [Target team] |
 | Channel |  [Target channel] |
 | Adaptive Card | [Copy template from `card_templates/ticket_card.json`] |
+| Card Type Id | TicketCard |
+
+> [!NOTE]
+> The field 'Card Type Id' can be found under 'Advanced parameters'
+> 'Card Type Id' can be any value but must stay consistent across flows
+
+4. Save and exit flow.
+
+### Configure 'Submit Ticket' Flow
+
+1. Within the new solution create a new instant cloud flow.
+
+2. Add a Teams 'When someone responds to an adaptive card' trigger
+
+| Field | Value |
+| --- | --- |
+| Inputs Adaptive Card | [Copy template from `card_templates/ticket_card.json`] |
+| Card Type Id | TicketCard |
+
+3. Add a Teams 'Post card in chat or channel' action
+
+| Field | Value |
+| --- | --- |
+| Post as | Flow bot |
+| Post in | Chat with Flow bot |
+| Recipient |  [Use 'Responder User ID' dynamic content from 'When someone responds to an adaptive card' trigger] |
+| Adaptive Card | [Copy template from `card_templates/update_card.json`] |
+
+4. Add a HTTP 'HTTP' action
+
+| Field | Value |
+| --- | --- |
+| Method | POST |
+| URI | [Flask app url] |
+| Body |  ```{ "priority": "[Use 'input-priority' dynamic content from 'When someone responds to an adaptive card' trigger]", "description": "[Use 'input-description' dynamic content from 'When someone responds to an adaptive card' trigger]" }``` |
+
+5. Add a Teams 'Post card in chat or channel' action
+
+| Field | Value |
+| --- | --- |
+| Post as | Flow bot |
+| Post in | Chat with Flow bot |
+| Recipient |  [Use 'Responder User ID' dynamic content from 'When someone responds to an adaptive card' trigger] |
+| Adaptive Card | [Copy template from `card_templates/update_card.json`] |
+
+6. Save and exit flow.
 
 # Hurdles
 
