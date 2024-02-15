@@ -56,7 +56,7 @@ flask run
 ```
 
 > [!IMPORTANT]
-> The Flask server must have a publically accessible URI. Consider using [ngrok](https://ngrok.com/) if hosting locally.
+> The Flask server must have a publicly accessible URI. Consider using [ngrok](https://ngrok.com/) if hosting locally.
 
 ## Configure Power Automate Flows
 
