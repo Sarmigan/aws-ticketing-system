@@ -5,13 +5,14 @@
     "body": [
         {
             "type": "TextBlock",
-            "text": "Your ticket is being processed!",
+            "text": "",
             "horizontalAlignment": "Center",
             "fontType": "Default",
             "size": "Large",
             "weight": "Bolder",
             "spacing": "None",
-            "id": "update-heading"
+            "id": "update-heading",
+            "wrap": true
         },
         {
             "type": "TextBlock",
@@ -20,7 +21,15 @@
             "size": "Default",
             "weight": "Bolder",
             "horizontalAlignment": "Center",
-            "id": "update-priority"
+            "id": "update-priority-title"
+        },
+        {
+            "type": "TextBlock",
+            "text": "",
+            "wrap": true,
+            "size": "Default",
+            "horizontalAlignment": "Center",
+            "id": "update-priority-message"
         },
         {
             "type": "TextBlock",
@@ -29,7 +38,15 @@
             "size": "Default",
             "weight": "Bolder",
             "horizontalAlignment": "Center",
-            "id": "update-description"
+            "id": "update-description-title"
+        },
+        {
+            "type": "TextBlock",
+            "text": "",
+            "wrap": true,
+            "size": "Default",
+            "horizontalAlignment": "Center",
+            "id": "update-description-message"
         }
     ]
 }

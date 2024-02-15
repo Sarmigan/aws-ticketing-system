@@ -138,8 +138,14 @@ flask run
 </tr>
 </table>
 
+> [!IMPORTANT]
+> Replace the 'text' values in the 'update-priority-message' and 'update-description-message' TextBlocks in the ticket_update.json with the 'input-priority' and 'input-description' dynamic content. Replace the 'text' value in the 'update-heading' TextBlock in the ticket_update.json with a message for the user i.e. "Your ticket is being processed!"
+
 > [!NOTE]
 > 'Responder User ID' can be found under dynamic content from the 'When someone responds to an adaptive card' trigger.
+
+> [!NOTE]
+> 'input-priority' and 'input-description' can be found under dynamic content from the 'When someone responds to an adaptive card' trigger.
 
 4. Add a HTTP 'HTTP' action
 
@@ -165,9 +171,6 @@ flask run
 > [!IMPORTANT]
 > You will need a premium Power Automate account to be able to use the HTTP actions!
 
-> [!NOTE]
-> 'input-priority' and 'input-description' can be found under dynamic content from the 'When someone responds to an adaptive card' trigger.
-
 5. Add a Teams 'Post card in chat or channel' action
 
 <table>
@@ -185,4 +188,14 @@ flask run
 </tr>
 </table>
 
+> [!IMPORTANT]
+> Replace the 'text' values in the 'update-heading', 'update-priority-message' and 'update-description-message' TextBlocks in the ticket_update.json with the 'Body', 'input-priority' and 'input-description' dynamic content. 
+
+> [!NOTE]
+> 'Body' can be found under dynamic content from the 'HTTP' action.
+
 6. Save and exit flow.
+
+# Usage
+
+The Adaptive Card under &lt;Target team&gt; in &lt;Target channel&gt; can be used to submit a ticket. The user will receive a 'processing' Adaptive Card sent to them followed by a succesful/unsucessful 'response' Adaptive Card. The tickets can be checked by polling the relevant SQS queues.
