@@ -1,0 +1,35 @@
+{
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.4",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "Your ticket is being processed!",
+            "horizontalAlignment": "Center",
+            "fontType": "Default",
+            "size": "Large",
+            "weight": "Bolder",
+            "spacing": "None",
+            "id": "update-heading"
+        },
+        {
+            "type": "TextBlock",
+            "text": "Priority:",
+            "wrap": true,
+            "size": "Default",
+            "weight": "Bolder",
+            "horizontalAlignment": "Center",
+            "id": "update-priority"
+        },
+        {
+            "type": "TextBlock",
+            "text": "Description:",
+            "wrap": true,
+            "size": "Default",
+            "weight": "Bolder",
+            "horizontalAlignment": "Center",
+            "id": "update-description"
+        }
+    ]
+}

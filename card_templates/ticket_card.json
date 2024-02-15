@@ -1,0 +1,45 @@
+{
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.4",
+    "id": "card",
+    "body": [
+        {
+            "type": "Input.ChoiceSet",
+            "choices": [
+                {
+                    "title": "High",
+                    "value": "High"
+                },
+                {
+                    "title": "Medium",
+                    "value": "Medium"
+                },
+                {
+                    "title": "Low",
+                    "value": "Low"
+                }
+            ],
+            "placeholder": "Priority",
+            "id": "input-priority",
+            "isRequired": true,
+            "errorMessage": "Please choose a priority!"
+        },
+        {
+            "type": "Input.Text",
+            "id": "input-description",
+            "isRequired": true,
+            "placeholder": "Description",
+            "errorMessage": "Please enter a description!"
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Submit"
+                }
+            ]
+        }
+    ]
+}

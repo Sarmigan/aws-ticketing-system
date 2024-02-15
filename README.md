@@ -1,11 +1,17 @@
-<h1 align="center">Teams Ticketing</h1>
+
+<div align="center">
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# Teams Ticketing
+
+</div>
 
 This is a bug ticketing system designed for Teams. Users can choose a priority level and provide a bug description using an [Adaptive Card](https://learn.microsoft.com/en-us/adaptive-cards/) within a Teams channel. Using Power Automate, the ticket is then dispatched to a Flask app, which directs the message to the appropriate AWS SQS queue for further processing.
 
 # Prerequisites
 - [ ] Python ^3.12
-- [ ] Poetry
-- [ ] AWS access keys
+- [ ] Poetry/pip
+- [ ] [AWS access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html)
 - [ ] Premium Power Automate account
 
 # Installation
@@ -20,8 +26,8 @@ git clone https://github.com/Sarmigan/aws-ticketing-system.git
 
 3. Create a .env file in the root directory and populate with appropriate AWS access credentials
 ```
-ACCESS_KEY=...
-SECRET_KEY=...
+ACCESS_KEY=<AWS access key>
+SECRET_KEY=<AWS secret key>
 ```
 
 ### Install dependencies
@@ -48,6 +54,9 @@ pip install -r requirements.txt
 ```
 flask run
 ```
+
+> [!IMPORTANT]
+> The Flask server must have a publically accessible URI. Consider using [ngrok](https://ngrok.com/) if hosting locally.
 
 ## Configure Power Automate Flows
 
@@ -125,7 +134,7 @@ flask run
 <td> Recipient </td><td> &lt;Responder User ID&gt; </td>
 </tr>
 <tr>
-<td> Adaptive Card </td><td> &lt;Copy template from card_templates/update_card.json&gt; </td>
+<td> Adaptive Card </td><td> &lt;Copy template from card_templates/ticket_update.json&gt; </td>
 </tr>
 </table>
 
@@ -153,6 +162,9 @@ flask run
 </tr>
 </table>
 
+> [!IMPORTANT]
+> You will need a premium Power Automate account to be able to use the HTTP actions!
+
 > [!NOTE]
 > 'input-priority' and 'input-description' can be found under dynamic content from the 'When someone responds to an adaptive card' trigger.
 
@@ -169,19 +181,8 @@ flask run
 <td> Recipient </td><td> &lt;Responder User ID&gt; </td>
 </tr>
 <tr>
-<td> Adaptive Card </td><td> &lt;Copy template from card_templates/update_card.json&gt; </td>
+<td> Adaptive Card </td><td> &lt;Copy template from card_templates/ticket_update.json&gt; </td>
 </tr>
 </table>
 
 6. Save and exit flow.
-
-# Hurdles
-
-TEAMS WEBHOOK
-- Needed ngrok to test teams webhook
-- Webhook request to callback service is in html format which required parsing using bs4
-- Webhook adds new lines in messages to seperate 'a' tags, which required further processing of the message.
-
-POWER AUTOMATE FLOWS
-- Used Power Automate to set up a flow to post an adaptive card in channel when keyword is used.
-- Power Automate flow
