@@ -26,6 +26,7 @@ git clone https://github.com/Sarmigan/aws-ticketing-system.git
 
 3. Create a .env file in the root directory and populate with appropriate AWS access credentials
 ```
+REGION=<AWS region>
 ACCESS_KEY=<AWS access key>
 SECRET_KEY=<AWS secret key>
 ```
@@ -198,4 +199,4 @@ flask run
 
 # Usage
 
-The Adaptive Card under &lt;Target team&gt; in &lt;Target channel&gt; can be used to submit a ticket. The user will receive a 'processing' Adaptive Card sent to them followed by a succesful/unsucessful 'response' Adaptive Card. The tickets can be checked by polling the relevant SQS queues.
+The Adaptive Card under &lt;Target team&gt; in &lt;Target channel&gt; can be used to submit a ticket. The user will receive a 'processing' Adaptive Card sent to them followed by a succesful/unsucessful 'response' Adaptive Card. These Adaptive Cards will contain a summary of the ticket information i.e. priority and description. If everything is configured correctly, the tickets can be found in the relevant SQS queues.

@@ -9,7 +9,7 @@ load_dotenv()
 app = Flask(__name__)
 
 config = Config(
-    region_name="eu-west-2"
+    region_name=os.environ["REGION"]
 )
 
 client = boto3.client(

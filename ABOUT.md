@@ -40,14 +40,12 @@ The Flask app contains one route (`/`) which handles the submission of the ticke
 The logic for sorting tickets by priority was relatively simple thanks to the Adaptive Card's input standardisation; users can  donly pick between aefined list of strings (`High`, `Low`, `Medium`) which is used by the Flask server in a switch statement to send the ticket to the correct SQS queue.
 
 ##### Creating and Sending to AWS SQS Queues
-The Flask server uses `boto3` to handle the API calls to AWS SQS. 
-
-TALK ABOUT INITIALLY USING GET QUEUE TO CREATE QUEUE ONLY.
+The Flask server uses `boto3` to handle the API calls to AWS SQS. Initially, once the route determined the queue to submit the ticket to, the app would use the `get_queue_by_name` method to find the relevant queue and if not found it will use the `create_queue` method to create the queue before sending the message using the `send_message` method. However, the `create_queue` method will return the SQS queue if it exists already, therefore the `get_queue_by_name` was removed since it was obsolete.
 
 ### AWS Credentials
 The server uses the access credentials of an AWS user with permission to read and modify SQS queues. Initially, the credentials were configured and used through the AWS CLI using `aws configure`. However, in order to simplify the process of setting up the Flask server, the credentials are retrieved as environment variables using [python-dotenv]() and a boto3 client is initialised to handle API calls.
 
-TALK ABOUT SETTING REGION
+Since the AWS CLI was configured with a default region, the boto3 client was also configured with a default region retrieved as an environment variable.
 
 ### Ngrok
 The Flask server during development needed to be publicly accessible for Power Automate to send HTTP requests, therefore [ngrok]() was used as a reverse proxy.
